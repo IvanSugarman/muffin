@@ -11,7 +11,7 @@ const throttle = (fn, wait) => {
     let timer;
 
     return function(...args) {
-        let now = +new Date();
+        let now = Date.now();
         const context = this;
 
         if (lastTime && now < lastTime + wait) {
