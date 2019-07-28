@@ -16,6 +16,4 @@
   - [13. 时间切片](./javascript/ex13-sliceTiming.js)
   - [14. BFS深拷贝](./javascript/ex14-BFSDeepClone.js)
 - [React](./react)
-  - [React基础01](./react/exp01)
 - [Redux](./redux)
-  - [Redux基础01](./redux/exp01)

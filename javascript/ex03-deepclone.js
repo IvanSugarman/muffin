@@ -8,7 +8,7 @@ function deepClone(obj, cache = new WeakMap()) {
     if (cache.has(obj)) {
         return obj;
     }
-    
+
     if (obj === null) {
         return obj;
     }
@@ -34,7 +34,7 @@ function deepClone(obj, cache = new WeakMap()) {
 
             Object.getOwnPropertyNames(obj).concat(Object.getOwnPropertySymbols(obj)).forEach((val) => {
                 cobj[val] = deepClone(obj[val], cache);
-            }); 
+            });
         }
     }
 

@@ -5,16 +5,15 @@ var arr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ] ] ], 1
 
 (function() {
     var arr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10];
-    
     Array.from(new Set(arr.flat(Infinity))).sort((a, b) => { return a - b; });
 })();
 
 
-/* 
+/*
     替代方案
     Array.flat: reduce / concat
     1层: arr.reduce((acc, val) => { return acc.concat(val); }, []);
-    n层递归实现: 
+    n层递归实现:
         function FlatDeep(arr) {
             arr.reduce((acc, val) => { return Array.isArray(val) ? FlatDeep(val) : acc.concat(val); }, []);
         }

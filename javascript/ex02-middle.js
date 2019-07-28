@@ -13,7 +13,7 @@ function getMedian(nums1, nums2) {
             tempArray = nums1;
             nums1 = nums2;
             nums2 = tempArray;
-            
+
             temp = m;
             m = n;
             n = temp;
@@ -48,7 +48,7 @@ function getMedian(nums1, nums2) {
                 }
 
                 right = 0;
-                
+
                 if (i === m) {
                     right = nums2[j];
                 } else if (j === n) {
