@@ -1,3 +1,5 @@
-# js-demo
+# Directory
 
-1. Thorttle
+- [JavaScript](./javascript)
+- [React](./react)
+- [Redux](./redux)
