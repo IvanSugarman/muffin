@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=0">
+<meta name="format-detection" content="telephone=no">
+<title>Dedicated Worker</title>
+<script src="./index.js"></script>
+<link rel="icon" href="favicon.png">
+<style>
+    ul > li {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 5px;
+        color: #fff;
+        font: 14px;
+        background: #0084ff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="root">
+    Dedicated Worker
+
+    <ul>
+        <li onclick="start()">Started</li>
+        <li onclick="heartbeat()">Heartbeat</li>
+        <li onclick="terminate()">Terminate</li>
+        <li onclick="error()">Error</li>
+    </ul>
+
+    <div id="output"></div>
+</div>
+</body>
+</html>
