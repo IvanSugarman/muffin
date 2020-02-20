@@ -13,3 +13,11 @@ function curry(fn, ...args) {
     }
 }
 
+/* es6 */
+function curring = fn => {
+    return function judge(...args) {
+        return args.length >= fn.length ?
+               fn(...args) :
+               (...arg) => judge(...args, ...arg);
+    }
+}
