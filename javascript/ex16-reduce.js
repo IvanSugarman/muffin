@@ -20,16 +20,22 @@ Array.prototype.reduce = function(callback, initialValue) {
     if (initialValue) {
         accmulator = initialValue;
     } else {
-        if (len === 0) {
+        while (k < len && !(k in O)) {
+            k++;
+        }
+
+        if (k >= len) {
             throw new TypeError('Reduce of empty array with no initial value');
         }
 
-        while (k < len) {
-            if (k in O) {
-                accmulator = callback(value, O[k], k, O);
-            }
-            k++;
+        value = o[k++];
+    }
+
+    while (k < len) {
+        if (k in O) {
+            accmulator = callback(value, O[k], k, O);
         }
+        k++;
     }
 
     return accmulator;
