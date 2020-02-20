@@ -24,14 +24,13 @@ Array.prototype.reduce = function(callback, initialValue) {
             throw new TypeError('Reduce of empty array with no initial value');
         }
 
-        let kPresent = false;
-
-        while(!kPresent && (k < len)) {
-            kPresent = k in O;
-
-            if (kPresent) {
-                accmulator = O[k];
+        while (k < len) {
+            if (k in O) {
+                accmulator = callback(value, O[k], k, O);
             }
+            k++;
         }
     }
+
+    return accmulator;
 }
