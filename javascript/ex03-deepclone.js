@@ -27,15 +27,13 @@ function deepClone(obj, cache = new WeakMap()) {
         obj.forEach((idx) => {
             cobj.push(deepClone(obj[idx], cache));
         });
-    } else {
-        if (Object.prototype.toString.call(obj) === '[object Object]') {
-            cobj = obj.constructor !== Object ? Object.create(obj.constructor.prototype) : {};
-            cache.set(obj, obj);
+    } else if (Object.prototype.toString.call(obj) === '[object Object]') {
+        cobj = obj.constructor !== Object ? Object.create(obj.constructor.prototype) : {};
+        cache.set(obj, obj);
 
-            Object.getOwnPropertyNames(obj).concat(Object.getOwnPropertySymbols(obj)).forEach((val) => {
-                cobj[val] = deepClone(obj[val], cache);
-            });
-        }
+        Object.getOwnPropertyNames(obj).concat(Object.getOwnPropertySymbols(obj)).forEach((val) => {
+            cobj[val] = deepClone(obj[val], cache);
+        });
     }
 
     return cobj;
