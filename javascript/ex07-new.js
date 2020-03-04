@@ -6,26 +6,11 @@
  * 4. 无返回对象则返回this
  */
 function New(fun) {
-    function isFunction(fn) {
-        return typeof fn === 'function';
-    }
+    var res,
+        obj;
 
-    function isObject(obj) {
-        return Object.prototype.toString.call(obj) === '[object Object]';
-    }
+    res = Object.create(fun.prototype);
+    obj = fun.apply(res, Array.prototype.slice.call(arguments, 1));
 
-    var ret,
-        res = {};
-
-    if (fun.prototype !== null) {
-        res.__proto__ = fun.prototype;
-    }
-
-    ret = fun.apply(res, Array.prototype.slice.call(arguments, 1));
-
-    if (isFunction(ret) || isObject(ret)) {
-        return ret;
-    }
-
-    return res;
+    return obj instanceof Object ? obj : res;
 }

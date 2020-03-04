@@ -24,9 +24,7 @@ function deepClone(obj, cache = new WeakMap()) {
 
     if (Array.isArray(obj)) {
         cobj = [];
-        obj.forEach((idx) => {
-            cobj.push(deepClone(obj[idx], cache));
-        });
+        obj.forEach(idx => cobj.push(deepClone(obj[idx], cache)))
     } else if (Object.prototype.toString.call(obj) === '[object Object]') {
         cobj = obj.constructor !== Object ? Object.create(obj.constructor.prototype) : {};
         cache.set(obj, obj);

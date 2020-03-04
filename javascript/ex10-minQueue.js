@@ -24,15 +24,15 @@ class minQueue {
 
         queue.push(num);
 
+        // 小于的情况
+        while (this.minIndeices.length && temp = this.minIndeices.pop() && num < temp) {
+            this.minIndeices.pop();
+        }
+
         // 大于则入队
         if (!this.minIndeices.length || num >= this.minIndeices[this.minIndeices.length - 1]) {
             this.minIndeices.push(num);
             return;
-        }
-
-        // 小于的情况
-        while (this.minIndeices.length && temp = this.minIndeices.pop() && num < temp) {
-            this.minIndeices.push(Math.max(temp, num));
         }
     }
 
